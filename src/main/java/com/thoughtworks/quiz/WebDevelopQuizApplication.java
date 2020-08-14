@@ -1,4 +1,4 @@
-package com.thoughtworks
+package com.thoughtworks.quiz;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
