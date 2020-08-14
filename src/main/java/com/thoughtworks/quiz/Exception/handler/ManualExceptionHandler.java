@@ -12,7 +12,7 @@ import com.thoughtworks.quiz.Exception.Error;
 @ControllerAdvice(assignableTypes = {StoreController.class, OrderController.class})
 public class ManualExceptionHandler {
 
-    @ExceptionHandler({BadRequestException.class})
+    @ExceptionHandler({BadRequestException.class,RuntimeException.class})
     public ResponseEntity<Error> badRequestHandler(Exception e){
         Error error = new Error(e.getMessage());
         return ResponseEntity.badRequest().body(error);

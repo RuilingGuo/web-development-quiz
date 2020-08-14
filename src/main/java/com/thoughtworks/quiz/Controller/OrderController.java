@@ -7,6 +7,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+@CrossOrigin
 @RestController
 public class OrderController {
     @Autowired
@@ -18,9 +19,15 @@ public class OrderController {
     }
 
     @PostMapping("/order")
-    public ResponseEntity addProductToOrder(@RequestBody Order order){
-        orderService.addProductToOrder(order);
+    public ResponseEntity addOrder(@RequestBody Order order){
+        orderService.addOrder(order);
         return  ResponseEntity.status(HttpStatus.OK).body("成功添加");
+    }
+
+    @DeleteMapping("/order")
+    public ResponseEntity deleteOrder(@RequestParam Integer orderId){
+        orderService.deleteOrder(orderId);
+        return  ResponseEntity.status(HttpStatus.OK).body("成功删除");
     }
 
 }
